@@ -1,0 +1,72 @@
+public class DoublyLinkedList3 {
+    static class Node {
+        int value;
+        Node next;
+        Node Prev;
+
+        Node(int value) {
+            this.value = value;
+            next = null;
+            Prev = null;
+        }
+    }
+
+    Node head;
+
+    //Create PrintMethod
+    public void Print() {
+        Node current = head;
+        while (current != null) {
+            System.out.print(current.value + " ");
+            current = current.next;
+        }
+    }
+
+    //Create a InsertAtEnd Method
+    public void InsertAtEnd(int new_data){
+        Node newNode=new Node(new_data);
+        if (head==null){
+            head=newNode;
+        }
+
+        Node current_Node=head;
+        while (current_Node.next!=null){
+            current_Node=current_Node.next;
+        }
+        newNode.Prev=current_Node;
+        current_Node.next=newNode;
+
+
+
+
+    }
+
+    public static void main(String[] args) {
+        DoublyLinkedList3 doublyLinkedList = new DoublyLinkedList3();
+
+        //Node Create
+        doublyLinkedList.head = new Node(10);
+        Node second = new Node(20);
+        Node third = new Node(30);
+
+
+        //connection
+        doublyLinkedList.head.next = second;
+        second.next = third;
+
+
+        third.Prev = second;
+        second.Prev = doublyLinkedList.head;
+
+        //Call Print Method
+        doublyLinkedList.Print();
+
+        //Call InsertAtAfter Method
+        doublyLinkedList.InsertAtEnd(70);
+
+        //Again Call Print Method
+        System.out.println();
+        doublyLinkedList.Print();
+
+    }
+}

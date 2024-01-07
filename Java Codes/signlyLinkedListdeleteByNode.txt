@@ -1,0 +1,54 @@
+public class LinkedList4 {
+    static class Node {
+        int value;
+        Node next;
+
+        Node(int value) {
+            this.value = value;
+            next = null;
+        }
+    }
+
+    Node head;
+
+    //Create PrintMethod
+    public void Print() {
+        Node current = head;
+        while (current != null) {
+            System.out.print(current.value + " ");
+            current = current.next;
+        }
+    }
+    public  void deleteByNode(Node node){
+        Node current=head;
+        while (current.next!=node){
+            current=current.next;
+        }
+        current.next=current.next.next;
+    }
+
+
+    //create Main Class
+    public static void main(String[] args) {
+        LinkedList4 linkedList = new LinkedList4();
+
+        // Assign value values
+        linkedList.head = new Node(1);
+        Node second = new Node(2);
+        Node third = new Node(3);
+
+        // Connect nodes
+        linkedList.head.next = second;
+        second.next = third;
+
+        //Print LinkedList
+        linkedList.Print();
+
+        //Call deleteByNode Method
+        linkedList.deleteByNode(second);
+
+        //Again Print LinkedList
+        System.out.println();
+        linkedList.Print();
+    }
+}

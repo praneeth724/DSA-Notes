@@ -1,0 +1,56 @@
+public class LinkedList1 {
+    static class Node {
+        int value;
+        Node next;
+
+        Node(int value) {
+            this.value = value;
+            next = null;
+        }
+    }
+    Node head;
+
+    //Create PrintMethod
+    public void Print(){
+        Node current=head;
+        while (current!=null){
+            System.out.print(current.value+" ");
+            current=current.next;
+        }
+    }
+
+
+
+    //Create insertAtBegin Method
+    public void insertAtBegin(int new_data){
+        Node newNode=new Node(new_data);
+        newNode.next=head;
+        head=newNode;
+    }
+
+
+    //create Main Class
+    public static void main(String[] args) {
+        LinkedList1 linkedList = new LinkedList1();
+
+        // Assign value values
+        linkedList.head = new LinkedList1.Node(1);
+        Node second = new Node(2);
+        Node third = new Node(3);
+
+        // Connect nodes
+        linkedList.head.next = second;
+        second.next = third;
+
+        //Call Print Method
+        linkedList.Print();
+
+        //Call insertAtBegin Method
+        linkedList.insertAtBegin(5);
+
+        //Call Print Method
+        System.out.println();
+        linkedList.Print();
+    }
+
+}
